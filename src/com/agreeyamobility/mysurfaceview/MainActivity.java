@@ -39,9 +39,16 @@ public class MainActivity extends Activity implements PreviewCallback{
 		getWindow().setFormat(PixelFormat.TRANSLUCENT);
 		setContentView(R.layout.activity_main);
 		initSurfaceView();
+		init();
 	}
 
 	
+
+	private void init() {
+		System.out.println("==========> 5");
+	}
+
+
 
 	// InitSurfaceView
 	private void initSurfaceView() {
@@ -49,6 +56,7 @@ public class MainActivity extends Activity implements PreviewCallback{
 		mRightSurfaceview = (SurfaceView) this.findViewById(R.id.RightSurfaceview);
 		mLeftSurfaceHolder = mLeftSurfaceview.getHolder(); // 绑定SurfaceView，取得SurfaceHolder对象
 		mRightSurfaceHolder = mRightSurfaceview.getHolder(); // 绑定SurfaceView，取得SurfaceHolder对象
+		System.out.println("==========> 1");
 		mLeftSurfaceHolder.addCallback(new Callback() {
 			
 			@Override
@@ -63,6 +71,7 @@ public class MainActivity extends Activity implements PreviewCallback{
 				}
 				mLeftSurfaceview = null;
 				mLeftSurfaceHolder = null;
+				System.out.println("==========> 4");
 			}
 			
 			@Override
@@ -92,13 +101,14 @@ public class MainActivity extends Activity implements PreviewCallback{
 					e.printStackTrace();
 				}
 				mLeftSurfaceHolder = holder;
+				System.out.println("==========> 2");
 			}
 			
 			@Override
 			public void surfaceChanged(SurfaceHolder holder, int format, int width,
 					int height) {
 				mLeftSurfaceHolder = holder;
-				
+				System.out.println("==========> 3");
 			}
 		}); // SurfaceHolder加入回调接口
 		
